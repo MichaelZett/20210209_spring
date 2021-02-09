@@ -2,6 +2,7 @@ package de.zettsystems.netzfilm.cart.domain;
 
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 public class ShoppingItem {
@@ -27,6 +28,8 @@ public class ShoppingItem {
     }
 
     public ShoppingItem(Product product, ShoppingCart shoppingCart, int quantity) {
+        this();
+        this.uuid = UUID.randomUUID().toString();
         this.product = product;
         this.shoppingCart = shoppingCart;
         this.quantity = quantity;
@@ -54,5 +57,16 @@ public class ShoppingItem {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "ShoppingItem{" +
+                "id=" + id +
+                ", version=" + version +
+                ", uuid='" + uuid + '\'' +
+                ", product=" + product.getName() +
+                ", quantity=" + quantity +
+                '}';
     }
 }

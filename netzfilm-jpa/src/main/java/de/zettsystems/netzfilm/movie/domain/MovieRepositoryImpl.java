@@ -32,7 +32,6 @@ public class MovieRepositoryImpl implements MovieRepository {
                 .getSingleResult());
     }
 
-
     @Override
     @Transactional
     public void save(Movie movie) {

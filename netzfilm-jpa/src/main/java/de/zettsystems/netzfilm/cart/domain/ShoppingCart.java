@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 public class ShoppingCart {
@@ -22,12 +23,8 @@ public class ShoppingCart {
 
     protected ShoppingCart() {
         super();
-    }
-
-    public ShoppingCart(String uuid) {
-        this();
-        this.uuid = uuid;
-        items = new LinkedList<>();
+        this.uuid = UUID.randomUUID().toString();
+        this.items = new LinkedList<>();
     }
 
     public long getId() {
@@ -48,5 +45,15 @@ public class ShoppingCart {
 
     public void addItem(Product product, int quantity) {
         items.add(new ShoppingItem(product, this, quantity));
+    }
+
+    @Override
+    public String toString() {
+        return "ShoppingCart{" +
+                "id=" + id +
+                ", version=" + version +
+                ", uuid='" + uuid + '\'' +
+                ", items=" + items +
+                '}';
     }
 }
