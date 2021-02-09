@@ -31,5 +31,4 @@ public class LoadMovieData {
         LOG.info("Found all: {}", movieRepository.findAll());
     }
 
-
 }
