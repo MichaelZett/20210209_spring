@@ -32,7 +32,7 @@ public class PrepareData {
         LOG.info("Preparing data...");
         loadCustomerData.createCustomer();
         loadCopyData.createCopies();
-        copyRepository.findAllByLentFalse().stream().forEach(
+        copyRepository.findAllByLentFalse().forEach(
                 c -> rentService.rentAMovie(1L, c.getId(), LocalDate.now(), 5L)
         );
 

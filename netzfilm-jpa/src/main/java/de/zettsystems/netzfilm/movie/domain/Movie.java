@@ -1,9 +1,6 @@
 package de.zettsystems.netzfilm.movie.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Version;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.UUID;
 

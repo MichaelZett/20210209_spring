@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -16,6 +17,7 @@ public class LoadMovieData {
         this.movieRepository = movieRepository;
     }
 
+    @PostConstruct
     public void createMovies() {
         movieRepository.save(new Movie("A new hope", LocalDate.of(1977, 5, 25)));
         movieRepository.save(new Movie("The Empire strikes back", LocalDate.of(1980, 5, 17)));
